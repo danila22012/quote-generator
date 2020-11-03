@@ -14,8 +14,7 @@ console.dir(loader);
 btnGenerate.addEventListener('click', ()=>{
 
     loader.style.display = 'block'
-    quote.style.display = 'none'
-    author.style.display = 'none'
+    document.querySelector('.quote-container').style.display = 'none'
 
 
     fetch(apiQuote)
@@ -25,8 +24,7 @@ btnGenerate.addEventListener('click', ()=>{
         quote.innerHTML = response.quoteText;
         author.innerHTML = response.quoteAuthor;
         
-        quote.style.display = 'block'
-        author.style.display = 'block'
+        document.querySelector('.quote-container').style.display = 'block'
         loader.style.display = 'none'
         
         console.log(response);
@@ -45,6 +43,6 @@ console.log(quote);
 btnTwitter.addEventListener('click', ()=>{
 
     if(quoteText == '')alert('Wait till we get your quote')
-    else window.open(`https://twitter.com/intent/tweet?text=${quoteText}${quoteAuthor}`, '_blank')
+    else window.open(`https://twitter.com/intent/tweet?text=${quoteText} ${quoteAuthor}`, '_blank')
     
 })
